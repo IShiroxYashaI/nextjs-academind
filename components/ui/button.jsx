@@ -4,9 +4,17 @@ import style from "./button.module.css";
 export default function Button(props) {
     const { children } = props;
 
+    if (props.link) {
+        return (
+            <Link href={props.link} className={style.btn}>
+                {children}
+            </Link>
+        );
+    }
+
     return (
-        <Link href="/events" className={style.btn}>
+        <button className={style.btn} onClick={props.onClick}>
             {children}
-        </Link>
+        </button>
     );
 }
