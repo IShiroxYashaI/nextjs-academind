@@ -9,10 +9,12 @@ export default function EventSearch(props) {
     const monthInputRef = useRef();
 
     function submitHandler(event) {
-        event.preventDefault();
+        event.preventDefault(); // prevent the page from reloading
         
-        const selectedYear = yearInputRef.current.value;
-        const selectedMonth = monthInputRef.current.value;
+        const selectedYear = yearInputRef.current.value; // current is a special property that points to the element that is currently rendered
+        const selectedMonth = monthInputRef.current.value; 
+
+        props.onSearch(selectedYear, selectedMonth); // this is the function passed from events-page.jsx
     }
 
     return (
